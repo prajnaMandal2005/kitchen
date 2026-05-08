@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Box, Paper, Typography, Button, Container, Chip, Avatar, Divider, Skeleton } from "@mui/material";
+import { Box, Paper, Typography, Button, Container, Chip, Avatar, Skeleton } from "@mui/material";
 import PageTransition from "../components/PageTransition";
 import QuoteBanner from "../components/QuoteBanner";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -18,19 +18,19 @@ function MyOrders() {
   const navigate = useNavigate();
   const userId = localStorage.getItem("userId");
 
-  const fetchOrders = () => {
+  const fetchOrders = useCallback(() => {
     if (userId) {
       api.get(`/api/order/my-orders/${userId}`)
         .then(res => { setOrders(res.data); setLoading(false); })
         .catch(err => { console.log(err); setLoading(false); });
     }
-  };
+  }, [userId]);
 
   useEffect(() => {
     fetchOrders();
     const interval = setInterval(fetchOrders, 3000);
     return () => clearInterval(interval);
-  }, [userId]);
+  }, [fetchOrders]);
 
   const getStatusConfig = (status) => {
     switch (status) {

@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import api from "../api";
 import { motion, AnimatePresence } from "framer-motion";
-import { Box, Typography, Paper, Avatar, Button, Grid, Chip, Divider, IconButton, Tooltip } from "@mui/material";
+import { Box, Typography, Paper, Avatar, Button, Grid, Chip, Divider, IconButton } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-import PersonIcon from "@mui/icons-material/Person";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import BadgeIcon from "@mui/icons-material/Badge";
@@ -12,17 +11,14 @@ import RefreshIcon from "@mui/icons-material/Refresh";
 
 function StaffRequests() {
   const [requests, setRequests] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const fetchRequests = async () => {
-    setLoading(true);
     try {
       const res = await api.get("/api/workers/pending");
       setRequests(res.data);
     } catch (err) {
       console.log(err);
     } finally {
-      setLoading(false);
     }
   };
 

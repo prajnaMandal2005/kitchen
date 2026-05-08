@@ -4,7 +4,7 @@ import api from "../api";
 import { motion } from "framer-motion";
 import {
   Box, Typography, Button, Container,
-  Skeleton, Grid, Chip, IconButton, Stack, useTheme
+  Skeleton, Grid, IconButton, Stack, useTheme
 } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";

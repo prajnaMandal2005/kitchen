@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
-import { Box, Paper, Typography, TextField, Button, Link, InputAdornment, IconButton, CircularProgress } from "@mui/material";
+import { Box, Paper, Typography, TextField, Button, Link, CircularProgress } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import PageTransition from "../components/PageTransition";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
