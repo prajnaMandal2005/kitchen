@@ -32,7 +32,7 @@ function FoodDetails() {
 
   useEffect(() => {
     setLoading(true);
-    api.get(`/api/food/${id}`)
+    api.get(`/food/${id}`)
       .then(res => setFood(res.data))
       .catch(err => console.error("Fetch error:", err))
       .finally(() => setLoading(false));

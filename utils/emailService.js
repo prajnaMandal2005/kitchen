@@ -128,7 +128,7 @@ const sendWorkerDecisionEmail = async (workerEmail, workerName, approved, role) 
           <p style="font-size: 14px; color: #a08090;">Your account is now fully activated. You can access your specialized staff dashboard immediately using the button below.</p>
           
           <div style="text-align: center; margin-top: 30px;">
-            <a href="http://localhost:3000/worker-login" style="background: #e11d48; color: #fff; text-decoration: none; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 16px; display: inline-block; transition: 0.3s;">Access Staff Portal</a>
+            <a href="${process.env.FRONTEND_URL || 'http://localhost:3000'}/worker-login" style="background: #e11d48; color: #fff; text-decoration: none; padding: 16px 32px; border-radius: 12px; font-weight: 700; font-size: 16px; display: inline-block; transition: 0.3s;">Access Staff Portal</a>
           </div>
         ` : `
           <p style="font-size: 15px;">Thank you for your interest in joining <span style="color: #fca5a5;">Prajna's Kitchen</span>.</p>
