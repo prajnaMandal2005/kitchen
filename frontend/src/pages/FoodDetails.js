@@ -39,6 +39,7 @@ function FoodDetails() {
   }, [id]);
 
   if (loading) return <LoadingSkeleton />;
+  if (!food) return <Box sx={{ py: 10, textAlign: "center" }}><Typography variant="h5">Delicacy not found.</Typography></Box>;
 
   return (
     <Box sx={{

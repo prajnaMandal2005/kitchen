@@ -65,7 +65,11 @@ mongoose.connect(process.env.MONGO_URI)
       });
       console.log("✅ Manager account created successfully!");
     } else {
-      console.log("ℹ️ Manager account already exists.");
+      // Force update password to hashed version just in case it was plain text
+      const hashedPassword = await bcrypt.hash("prajna", 10);
+      managerExists.password = hashedPassword;
+      await managerExists.save();
+      console.log("ℹ️ Manager account password verified/updated.");
     }
 
     console.log("Successfully seeded database!");
