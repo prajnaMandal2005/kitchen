@@ -8,7 +8,7 @@ function CustomerDetails() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    api.get("/api/auth/users")
+    api.get("/auth/users")
       .then(res => setUsers(res.data))
       .catch(err => console.log(err));
   }, []);

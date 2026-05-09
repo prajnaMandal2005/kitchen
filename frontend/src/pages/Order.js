@@ -47,7 +47,7 @@ function Order() {
       items: cart.map(item => ({ name: item.name, price: item.price || 10, quantity: item.quantity, image: item.img })),
       totalAmount: parseFloat(getTotal())
     };
-    api.post("/api/order/place-order", orderPayload)
+    api.post("/order/place-order", orderPayload)
       .then(() => { 
         setPlaced(true); 
         setLoading(false); 

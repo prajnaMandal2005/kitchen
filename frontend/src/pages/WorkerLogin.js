@@ -29,7 +29,7 @@ function WorkerLogin() {
     setError("");
     setIsPending(false);
     try {
-      const res = await api.post("/api/workers/login", form);
+      const res = await api.post("/workers/login", form);
       localStorage.setItem("token", res.data.token || "demo-token");
       localStorage.setItem("userId", res.data._id);
       localStorage.setItem("name", res.data.name);

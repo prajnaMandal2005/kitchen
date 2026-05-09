@@ -40,7 +40,7 @@ function WorkerRegister() {
     setLoading(true);
     setError("");
     try {
-      await api.post("/api/workers/send-otp", form);
+      await api.post("/workers/send-otp", form);
       setStep(2);
       setResendTimer(60);
     } catch (err) {
@@ -55,7 +55,7 @@ function WorkerRegister() {
     setLoading(true);
     setError("");
     try {
-      await api.post("/api/workers/verify-otp", { email: form.email, otp });
+      await api.post("/workers/verify-otp", { email: form.email, otp });
       setStep(3);
     } catch (err) {
       setError(err.response?.data?.message || "Invalid or expired code.");
@@ -69,7 +69,7 @@ function WorkerRegister() {
     setLoading(true);
     setError("");
     try {
-      await api.post("/api/workers/resend-otp", { email: form.email });
+      await api.post("/workers/resend-otp", { email: form.email });
       setResendTimer(60);
       alert("Verification code resent.");
     } catch (err) {

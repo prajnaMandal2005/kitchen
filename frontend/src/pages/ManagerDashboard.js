@@ -25,7 +25,7 @@ function ManagerDashboard() {
     // Check pending workers count for the badge
     const fetchPendingCount = async () => {
       try {
-        const res = await api.get("/api/workers/pending");
+        const res = await api.get("/workers/pending");
         setPendingCount(res.data.length);
       } catch (err) {
         console.log(err);

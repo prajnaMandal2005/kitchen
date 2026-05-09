@@ -7,7 +7,7 @@ function Cart() {
   const placeOrder = async () => {
     const userId = "USER_ID_HERE";
 
-    await api.post("/api/order/place-order", {
+    await api.post("/order/place-order", {
       userId,
       customerName: "User",
       items: cart,

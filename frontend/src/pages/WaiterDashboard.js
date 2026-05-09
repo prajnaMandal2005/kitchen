@@ -23,9 +23,9 @@ function WaiterDashboard() {
 
   const fetchOrders = () => {
     Promise.all([
-      api.get("/api/order/pending"),
-      api.get("/api/order/completed"),
-      api.get("/api/order/delivered")
+      api.get("/order/pending"),
+      api.get("/order/completed"),
+      api.get("/order/delivered")
     ]).then(([pendingRes, completedRes, deliveredRes]) => {
       setPendingOrders(Array.isArray(pendingRes.data) ? pendingRes.data : []);
       setCompletedOrders(Array.isArray(completedRes.data) ? completedRes.data : []);
@@ -47,7 +47,7 @@ function WaiterDashboard() {
   }, []);
 
   const updateStatus = async (id, status) => {
-    try { await api.put(`/api/order/status/${id}`, { status }); fetchOrders(); }
+    try { await api.put(`/order/status/${id}`, { status }); fetchOrders(); }
     catch (err) { console.log(err); }
   };
 

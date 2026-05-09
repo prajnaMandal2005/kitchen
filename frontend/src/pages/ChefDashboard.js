@@ -17,7 +17,7 @@ function ChefDashboard() {
   const navigate = useNavigate();
 
   const fetchOrders = () => {
-    api.get("/api/order/sent-to-chef")
+    api.get("/order/sent-to-chef")
       .then(res => { setOrders(res.data); setLoading(false); })
       .catch(err => { console.log(err); setLoading(false); });
   };
@@ -29,7 +29,7 @@ function ChefDashboard() {
   }, []);
 
   const handleComplete = async (id) => {
-    try { await api.put(`/api/order/status/${id}`, { status: "completed" }); fetchOrders(); }
+    try { await api.put(`/order/status/${id}`, { status: "completed" }); fetchOrders(); }
     catch (err) { console.log(err); }
   };
 

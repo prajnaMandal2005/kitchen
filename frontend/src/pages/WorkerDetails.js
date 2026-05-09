@@ -8,7 +8,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutlined";
 function WorkerDetails() {
   const [workers, setWorkers] = useState([]);
   const [newWorker, setNewWorker] = useState({ name: "", email: "", phone: "", role: "chef", password: "" });
-  const API_URL = "/api/workers/";
+  const API_URL = "/workers/";
 
   const fetchWorkers = async () => {
     try { const res = await api.get(API_URL); setWorkers(res.data); }

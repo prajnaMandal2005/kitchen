@@ -20,7 +20,7 @@ function MyOrders() {
 
   const fetchOrders = useCallback(() => {
     if (userId) {
-      api.get(`/api/order/my-orders/${userId}`)
+      api.get(`/order/my-orders/${userId}`)
         .then(res => { setOrders(res.data); setLoading(false); })
         .catch(err => { console.log(err); setLoading(false); });
     }

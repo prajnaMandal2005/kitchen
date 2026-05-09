@@ -25,7 +25,7 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get("/api/food")
+    api.get("/food")
       .then(res => { setMenu(res.data); setLoading(false); })
       .catch(err => { console.log(err); setLoading(false); });
   }, []);

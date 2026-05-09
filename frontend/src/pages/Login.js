@@ -15,7 +15,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/api/auth/login", form);
+      const res = await api.post("/auth/login", form);
       localStorage.setItem("token", res.data.token || "demo-token");
       localStorage.setItem("userId", res.data._id);
       localStorage.setItem("name", res.data.name);

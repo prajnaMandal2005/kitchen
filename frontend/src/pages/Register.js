@@ -37,7 +37,7 @@ function Register() {
     setLoading(true);
     setError("");
     try {
-      await api.post("/api/auth/send-otp", form);
+      await api.post("/auth/send-otp", form);
       setStep(2);
       setResendTimer(60);
     } catch (err) {
@@ -52,7 +52,7 @@ function Register() {
     setLoading(true);
     setError("");
     try {
-      await api.post("/api/auth/verify-otp", { email: form.email, otp });
+      await api.post("/auth/verify-otp", { email: form.email, otp });
       setStep(3);
       setTimeout(() => navigate("/login"), 3000);
     } catch (err) {
@@ -67,7 +67,7 @@ function Register() {
     setLoading(true);
     setError("");
     try {
-      await api.post("/api/auth/resend-otp", { email: form.email });
+      await api.post("/auth/resend-otp", { email: form.email });
       setResendTimer(60);
       alert("A new verification code has been sent to your email.");
     } catch (err) {

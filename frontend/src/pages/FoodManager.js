@@ -11,7 +11,7 @@ function FoodManager() {
   const [newFood, setNewFood] = useState({ name: "", img: "", ingredients: "", details: "", price: "" });
 
   const fetchFoods = async () => {
-    try { const res = await api.get("/api/food"); setFoods(res.data); setLoading(false); }
+    try { const res = await api.get("/food"); setFoods(res.data); setLoading(false); }
     catch (err) { console.log(err); setLoading(false); }
   };
 
@@ -20,12 +20,12 @@ function FoodManager() {
   const handleAdd = async (e) => {
     e.preventDefault();
     if (!newFood.name || !newFood.img) { alert("Name and Image are required"); return; }
-    try { await api.post("/api/food", newFood); setNewFood({ name: "", img: "", ingredients: "", details: "", price: "" }); fetchFoods(); }
+    try { await api.post("/food", newFood); setNewFood({ name: "", img: "", ingredients: "", details: "", price: "" }); fetchFoods(); }
     catch (err) { console.log(err); }
   };
 
   const handleDelete = async (id) => {
-    try { await api.delete(`/api/food/${id}`); fetchFoods(); }
+    try { await api.delete(`/food/${id}`); fetchFoods(); }
     catch (err) { console.log(err); }
   };
 

@@ -14,7 +14,7 @@ function StaffRequests() {
 
   const fetchRequests = async () => {
     try {
-      const res = await api.get("/api/workers/pending");
+      const res = await api.get("/workers/pending");
       setRequests(res.data);
     } catch (err) {
       console.log(err);
@@ -28,7 +28,7 @@ function StaffRequests() {
 
   const handleAction = async (id, action) => {
     try {
-      await api.post(`/api/workers/${action}/${id}`);
+      await api.post(`/workers/${action}/${id}`);
       setRequests(requests.filter(r => r._id !== id));
       alert(`Staff member ${action === "approve" ? "approved" : "rejected"} successfully.`);
     } catch (err) {
